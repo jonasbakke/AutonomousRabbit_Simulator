@@ -2,10 +2,10 @@ N = size(vout_runnerPerspective, 4);
 M = size(vout_topDownPerspective, 4);
 
 % create the video writers with 60 fps
-writerObj_runnerPerspective = VideoWriter('video_runnerPerspective_angle.avi');
+writerObj_runnerPerspective = VideoWriter('video_runnerPerspective_4K.avi');
 writerObj_runnerPerspective.FrameRate = 60;
 
-writerObj_topDownPerspective = VideoWriter('video_topDownPerspective_angle.avi');
+writerObj_topDownPerspective = VideoWriter('video_topDownPerspective_4K.avi');
 writerObj_topDownPerspective.FrameRate = 60;
 
 open(writerObj_runnerPerspective);
