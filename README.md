@@ -41,8 +41,7 @@ delta = steering_controller(image)
 
 where delta is the steering angle in radians, and image is
 a 2-dimensional matrix representing a grayscale image. If another definition is required,
-the function block "STEERING_CONTROLLER" in the Simulink model must be changed ac-
-cordingly.
+the function block "STEERING_CONTROLLER" in the Simulink model must be changed accordingly.
 
 ### Accessing camera feed
 The "Front camera"_block in the Simulink model defines the front camera
@@ -50,6 +49,26 @@ object. The camera’s position on the rabbit is set using the fields called Veh
 camera more towards the ground or sky. The amount of pixels in each dimension can also
 be altered, as well as the horizontal field of view, so that the camera can more closely
 emulate the camera that will be used for the real rabbit.
+
+## Storing variables between iterations
+In order to store variables such as an integral-term to a PID-controller between iterations, declare the variables as "persistent".
+
+Example:
+
+    function v = speed_controller(distance)
+
+    persistent integral_term
+
+    if isempty(integral_term)          % In the first iteration the variable won't have a defined value so this check is necessary
+
+        integral_term = 0;
+    
+    end
+
+Rest of code...
+
+
+
 
 
 
